@@ -1,7 +1,7 @@
 const config = {
   challenge: false,
   users: {
-    skelly: "password",
+    interstellar: "password",
   },
 };
 
