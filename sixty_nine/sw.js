@@ -9,27 +9,29 @@ const uv = new UVServiceWorker();
 const dynamic = new Dynamic();
 const scramjet = new ScramjetServiceWorker();
 
-const userKey = new URL(location).searchParams.get("userkey");
+const userKey = new URL(self.location).searchParams.get("userkey");
 self.dynamic = dynamic;
 
-// Handle fetch event
-self.addEventListener("fetch", event => {
+self.addEventListener("fetch", (event) => {
   event.respondWith(
     (async () => {
-      // Check if dynamic handles the request
+      // Priority 1: Dynamic routing
       if (await dynamic.route(event)) {
         return await dynamic.fetch(event);
       }
-      // Check if scramjet handles the request
-      if (await scramjet.route(event)) {
-        return await scramjet.fetch(event);
-      }
-      // UV fetch for /a/ path
+
+      // Priority 2: UV service worker routing for '/a/' URLs
       if (event.request.url.startsWith(`${location.origin}/a/`)) {
         return await uv.fetch(event);
       }
-      // Default fetch fallback
-      return await fetch(event.request);
-    })(),
+
+      // Priority 3: Scramjet routing (your custom streaming or processing layer)
+      if (await scramjet.route(event)) {
+        return await scramjet.fetch(event);
+      }
+
+      // Fallback: default fetch
+      return fetch(event.request);
+    })()
   );
 });
