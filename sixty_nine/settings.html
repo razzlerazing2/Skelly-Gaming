@@ -9,6 +9,34 @@
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/settings.css" />
     <link rel="stylesheet" href="/assets/css/settings.css?v=06" />
+    <style>
+            body[theme="catppuccin-frappe"] {
+   background: url("/assets/media/background/skibididdy.jpg") no-repeat center center fixed;
+  background-size: cover;
+  --shadow: rgba(0, 0, 0, 0.01);
+  --text: #cdd6f4;
+}
+
+body[theme="catppuccin-macchiato"] {
+   background: url("/assets/media/background/rizzyaf.gif") no-repeat center center fixed;
+  background-size: cover;
+  --shadow: rgba(0, 0, 0, 0.01);
+  --text: #cdd6f4;
+}
+
+body[theme="catppuccin-mocha"] {
+  background: url("/assets/media/background/senkbucketup.webp") no-repeat center center fixed;
+  background-size: cover;
+  --shadow: rgba(0, 0, 0, 0.01);
+  --text: #cdd6f4;
+}
+body[theme="default"] {
+  background: url("/assets/media/background/canthurtmewmyogscantnerfmesandyop.png") no-repeat center center fixed;
+  background-size: cover;
+  --shadow: rgba(0, 0, 0, 0.01);
+  --text: #cdd6f4;
+}
+  </style>
 </head>
 
 <body onload="showLoader()">
@@ -25,7 +53,7 @@
       <li><a href="/apps">Apps</a></li>
          <li><a href="/search">Search</a></li>
       <li><a href="/settings">Settings</a></li>
-      <li><a href="/creditstoNCS">Legal</a></li>
+      <!--<li><a href="/creditstoNCS">Legal</a></li>-->
       <!--<li><a href="/about">About</a></li>
       <li><a href="/contact">Contact Info</a></li>-->
     </ul>
@@ -82,6 +110,15 @@
                     </select>
                 </div>
             </div>
+            <div class="settings-card">
+            <h2>Theme</h2>
+            <div class="theme-buttons">
+              <button class="key-button" onclick="setTheme('default')" style="color: white;">Default</button>
+              <button class="key-button" onclick="setTheme('catppuccin-frappe')" style="color: white;">Ghost Skull</button>
+              <button class="key-button" onclick="setTheme('catppuccin-macchiato')" style="color: white;">Cool gif</button>
+              <button class="key-button" onclick="setTheme('catppuccin-mocha')" style="color: white;">Skull</button>
+            </div>
+          </div>
              <div class="settings-card">
         <h3><span class="highlight">Set Background Image</span></h3>
         <p>It is very good and I worked on it so hard. If you don't like this, you may def change it. It is no longer on beta testing so this is very good and you will enjoy it. Was definitely hard to create.</p>
@@ -127,9 +164,9 @@
     </script>
     <!-- DO NOT REMOVE-->
       <!-- 🎵 BGM Playlist Player -->
-    <audio id="bgm" autoplay hidden></audio>
-    <script>
-        const playlist = [
+    <!--<audio id="bgm" autoplay hidden></audio>-->
+    <!--<script>
+      const playlist = [
            "/assets/media/audio/fearless.mp3",
            "/assets/media/audio/pullmehdown.mp3",
            "/assets/media/audio/onandon.mp3",
@@ -165,7 +202,19 @@
         audio.src = playlist[currentTrack];
         audio.play();
     });
-    </script>
+    </script>-->
+      <script>
+// Apply saved theme on page load
+const savedTheme = localStorage.getItem('theme') || 'default';
+document.body.setAttribute('theme', savedTheme);
+
+// Define the setTheme function globally
+function setTheme(theme) {
+  document.body.setAttribute('theme', theme);
+  localStorage.setItem('theme', theme);
+}
+
+  </script>
 </body>
 
 </html>

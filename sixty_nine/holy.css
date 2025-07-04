@@ -18,9 +18,12 @@ body {
   text-align: center;
 
   /* Background */
-  background: url("/assets/media/background/senkbucketup.webp") no-repeat center center;
-  background-size: cover;
-  background-position: center;
+background-color: var(--background, #000);
+  color: var(--text, #fff);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed; /* Keeps the background fixed when scrolling */
 }
 
 /* Hide scrollbar for WebKit browsers */

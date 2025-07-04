@@ -51,10 +51,12 @@ body {
     font-family: 'Press Start 2P', cursive;
    text-decoration: none;
    height: 100%;
-     background: url("/assets/media/background/senkbucketup.webp") no-repeat center center;
-  background-size: cover;
-  background-position: center;
-   /* animation: gradientAnimation 5s linear infinite; */
+background-color: var(--background, #000);
+  color: var(--text, #fff);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed; /* Keeps the background fixed when scrolling */
 }
 
 

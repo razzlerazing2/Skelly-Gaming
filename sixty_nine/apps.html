@@ -17,7 +17,34 @@
     <script src="/assets/js/i.js?v=03"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6840529569014734"
         crossorigin="anonymous"></script>
+<style>
+                body[theme="catppuccin-frappe"] {
+   background: url("/assets/media/background/skibididdy.jpg") no-repeat center center fixed;
+  background-size: cover;
+  --shadow: rgba(0, 0, 0, 0.01);
+  --text: #cdd6f4;
+}
 
+body[theme="catppuccin-macchiato"] {
+   background: url("/assets/media/background/rizzyaf.gif") no-repeat center center fixed;
+  background-size: cover;
+  --shadow: rgba(0, 0, 0, 0.01);
+  --text: #cdd6f4;
+}
+
+body[theme="catppuccin-mocha"] {
+  background: url("/assets/media/background/senkbucketup.webp") no-repeat center center fixed;
+  background-size: cover;
+  --shadow: rgba(0, 0, 0, 0.01);
+  --text: #cdd6f4;
+}
+body[theme="default"] {
+  background: url("/assets/media/background/canthurtmewmyogscantnerfmesandyop.png") no-repeat center center fixed;
+  background-size: cover;
+  --shadow: rgba(0, 0, 0, 0.01);
+  --text: #cdd6f4;
+}
+</style>
 </head>
 
 <body onload="showLoader()">
@@ -27,14 +54,14 @@
         <p><span class="highlight">Hanging Extension, please wait...</span></p>
         <div class="loader"></div>
     </div>
-  <nav class="top-nav">
+ <nav class="top-nav">
     <div class="logo"><a href="/home">SKG</a></div>
     <ul>
       <li><a href="/games">Games</a></li>
       <li><a href="/apps">Apps</a></li>
          <li><a href="/search">Search</a></li>
       <li><a href="/settings">Settings</a></li>
-      <li><a href="/creditstoNCS">Legal</a></li>
+      <!--<li><a href="/creditstoNCS">Legal</a></li>-->
       <!--<li><a href="/about">About</a></li>
       <li><a href="/contact">Contact Info</a></li>-->
     </ul>
@@ -70,10 +97,10 @@
         gtag("config", "G-WKJQ5QHQTJ");
     </script>
     <!-- DO NOT REMOVE-->
-      <!-- 🎵 BGM Playlist Player -->
-    <audio id="bgm" autoplay hidden></audio>
-    <script>
-        const playlist = [
+  <!-- 🎵 BGM Playlist Player -->
+    <!--<audio id="bgm" autoplay hidden></audio>-->
+    <!--<script>
+      const playlist = [
            "/assets/media/audio/fearless.mp3",
            "/assets/media/audio/pullmehdown.mp3",
            "/assets/media/audio/onandon.mp3",
@@ -109,6 +136,17 @@
         audio.src = playlist[currentTrack];
         audio.play();
     });
+    </script>-->
+    <script>
+        // Apply saved theme on page load
+const savedTheme = localStorage.getItem('theme') || 'default';
+document.body.setAttribute('theme', savedTheme);
+
+// Define the setTheme function globally
+function setTheme(theme) {
+  document.body.setAttribute('theme', theme);
+  localStorage.setItem('theme', theme);
+}
     </script>
 </body>
 
